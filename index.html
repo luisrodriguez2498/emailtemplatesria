@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Email Templates</title>    
+  <style>
+    h1 {
+      background: rgb(43, 106, 187);
+      border-radius: 2cm;
+      text-align: center;
+      font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      color: #ffffff;
+    }
+
+    h2 {
+      background: rgb(166, 72, 38);
+      border-radius: 2cm;
+      text-align: center;
+      font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      color: #ffffff;
+    }
+
+    h3 {
+      background: rgb(104, 89, 112);
+      width: 50%;
+      text-align: center;
+      padding: 5px;
+      border-radius: 2cm;
+      color: #ffffff;
+      margin-bottom: 50px;
+    }
+
+    h4 {
+      background: rgb(89, 112, 93);
+      width: max-content;
+      text-align: center;
+      padding: 5px;
+      border-radius: 2cm;
+      color: #ffffff;
+    }
+
+    .container-h2 {
+      padding-bottom: 20px;
+    }
+
+    textarea,
+    input[type="text"] {
+      width: 100%;
+      height: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      color: #333;
+      background-color: #fff;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+      box-sizing: border-box;
+    }
+
+    .copy-button {
+      background-color: #fafafa;
+      border: 1px solid #ccc;
+      color: #333;
+      font-size: 14px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      position: absolute;
+      top: -5px;
+      right: 0px;
+      transform: translateY(-100%);
+    }
+
+    .copy-button:hover {
+      background-color: #e6e6e6;
+    }
+
+    .copy-button-Izquierda {
+      background-color: #fafafa;
+      border: 1px solid #ccc;
+      color: #333;
+      font-size: 14px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      position: absolute;
+      top: -5px;
+      right: 100px;
+      transform: translateY(-100%);
+    }
+
+    .copy-button-Izquierda:hover {
+      background-color: #e6e6e6;
+    }
+
+    body {
+      background-color: #F2780C;
+      font-family: Arial, Helvetica, sans-serif;
+      padding: 0% 10%;
+    }
+
+    .container {
+      margin-bottom: 20px;
+      position: relative;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      color: #333;
+      background-color: #fff;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .contador {
+      font-weight: bold;
+      position: absolute;
+      top: -50px;
+      right: 80px;
+      transform: translateY(100%);
+      margin-top: 5px;
+      margin-right: 5px;
+    }
+
+    summary {
+        border: 4px solid transparent;
+        outline: none;
+        padding: 1rem;
+        display: block;
+        background: rgb(166, 72, 38);
+        color: #ffffff;
+        padding-left: 2.2rem;
+        position: relative;
+        cursor: pointer;  
+      }
+
+      details {
+        box-sizing: border-box;
+        margin-top: 5px;
+      }
+      details summary::-webkit-details-marker {
+        display:none;
+      }
+      details[open] > summary:before {
+        transform: rotate(90deg);
+      }
+      
+      summary:before {
+        content: '';
+        border-width: .4rem;
+        border-style: solid;
+        border-color: transparent transparent transparent #fff;
+        position: absolute;
+        top: 1.3rem;
+        left: 1rem;
+        transform: rotate(0);
+        transform-origin: .2rem 50%;
+        transition: .25s transform ease;
+      }
+  </style>
+
+  <script>
+    function copyToClipboard(elementId) {
+      const element = document.getElementById(elementId);
+      if (!element) {
+        console.error(`No se encontró ningún elemento con el id ${elementId}`);
+        return;
+      }
+      const textToCopy = element.value;
+      navigator.clipboard.writeText(textToCopy).then(
+        function () {
+          console.log("Texto copiado correctamente.");
+        },
+        function () {
+          console.error("No se pudo copiar el texto.");
+        }
+      );
+    }
+
+    function copyToClipboardP(elementId) {
+      const element = document.getElementById(elementId);
+      if (!element) {
+        console.error(`No se encontró ningún elemento con el id ${elementId}`);
+        return;
+      }
+      const textToCopy = element.innerText;
+      navigator.clipboard.writeText(textToCopy).then(
+        function () {
+          console.log("Texto copiado correctamente.");
+        },
+        function () {
+          console.error("No se pudo copiar el texto.");
+        }
+      );
+    }
+
+    function actualizarContador(textareaId, characterCountId) {
+      const textarea = document.getElementById(textareaId);
+      const characterCount = document.getElementById(characterCountId);
+
+      const text = textarea.value;
+      const count = text.length;
+      characterCount.textContent = `${count}/500`;
+    }
+
+    function reemplazarTexto1(idTexto1, idSpan1) {
+      var nuevoTexto1 = document.getElementById(idTexto1).value;
+      var spanElement1 = document.getElementById(idSpan1);
+      spanElement1.textContent = nuevoTexto1;
+    }
+
+    function reemplazarTexto6(idTexto1, idSpan1, idTexto2, idSpan2, idTexto3, idSpan3, idTexto4, idSpan4, idTexto5, idSpan5, idTexto6, idSpan6) {
+      var nuevoTexto1 = document.getElementById(idTexto1).value;
+      var spanElement1 = document.getElementById(idSpan1);
+      spanElement1.textContent = nuevoTexto1;
+
+      var nuevoTexto2 = document.getElementById(idTexto2).value;
+      var spanElement2 = document.getElementById(idSpan2);
+      spanElement2.textContent = nuevoTexto2;
+
+      var nuevoTexto3 = document.getElementById(idTexto3).value;
+      var spanElement3 = document.getElementById(idSpan3);
+      spanElement3.textContent = nuevoTexto3;
+
+      var nuevoTexto4 = document.getElementById(idTexto4).value;
+      var spanElement4 = document.getElementById(idSpan4);
+      spanElement4.textContent = nuevoTexto4;
+
+      var nuevoTexto5 = document.getElementById(idTexto5).value;
+      var spanElement5 = document.getElementById(idSpan5);
+      spanElement5.textContent = nuevoTexto5;
+
+      var nuevoTexto6 = document.getElementById(idTexto6).value;
+      var spanElement6 = document.getElementById(idSpan6);
+      spanElement6.textContent = nuevoTexto6;
+    }
+  </script>
+  
+</head>
+
+<body>
+  <details>
+    <summary>
+      General Email
+    </summary>
+    <a href="general.html">Click here to open the general email page.</a>
+    
+  </details>
+  <details>
+    <summary>
+      Requirements - EN
+    </summary>
+    <a href="requirements - EN.html">Click here to open the email page, EN - US.</a>
+    <br>
+    <a href="requirements - EN - CA.html">Click here to open the email page, EN - CA.</a>
+    
+  </details>
+  <details>
+    <summary>
+      Requirements - ES
+    </summary>
+    <a href="requirements - ES.html">Click here to open the email page, EN - US.</a>
+    <br>
+    <a href="requirements - ES - CA.html">Click here to open the email page, EN - CA.</a>
+    
+  </details>
+  <details>
+    <summary>
+      Requirements - FR
+    </summary>
+    <a href="requirements - FR.html">Click here to open the email page, FR - CA.</a>
+
+  </details>
+  <details>
+    <summary>
+      Reminder - EN
+    </summary>
+    <a href="reminder - EN.html">Click here to open the email page, EN - US.</a>
+    <br>
+    <a href="reminder - EN - CA.html">Click here to open the email page, EN - CA.</a>
+  </details>
+  <details>
+    <summary>
+      Reminder - ES
+    </summary>
+    <a href="reminder - ES.html">Click here to open the email page, EN - US.</a>
+    <br>
+    <a href="reminder - ES - CA.html">Click here to open the email page, EN - CA.</a>
+    
+  </details>
+  <details>
+    <summary>
+      Reminder - FR
+    </summary>
+    <a href="reminder - FR.html">Click here to open the email page, FR - CA.</a>
+    
+  </details>
+
+
+
+
+
+
+</body>
